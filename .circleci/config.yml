@@ -12,6 +12,17 @@ jobs:
       - run:
           name: Build and push Docker image
           command: |
-            docker build -t demikl/$IMAGE_NAME:$TAG .
+            docker build -t demikl/kube-fluentd-operator:$CIRCLE_TAG .
             echo $DOCKER_PWD | docker login -u $DOCKER_LOGIN --password-stdin
-            docker push demikl/$IMAGE_NAME:$TAG
+            docker push demikl/kube-fluentd-operator:$CIRCLE_TAG
+
+workflows:
+  version: 2
+  build_and_push:
+    jobs:
+      - build:
+          filters:
+            tags:
+              only: /[0-9]+(\.[0-9]+)*/
+            branches:
+              ignore: /.*/
