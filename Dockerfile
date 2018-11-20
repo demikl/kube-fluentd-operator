@@ -15,5 +15,3 @@ RUN buildDeps="sudo make gcc g++ libc-dev ruby-dev libffi-dev" \
  && rm -rf /var/lib/apt/lists/* \
     && gem sources --clear-all \
     && rm -rf /tmp/* /var/tmp/* /usr/lib/ruby/gems/*/cache/*.gem
-
-COPY plugins /fluentd/plugins
