@@ -1,4 +1,4 @@
-FROM vmware/kube-fluentd-operator:
+FROM vmware/kube-fluentd-operator:1.7.0
 
 RUN buildDeps="sudo make gcc g++ libc-dev ruby-dev libffi-dev" \
      && apt-get update \
